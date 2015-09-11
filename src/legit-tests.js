@@ -16,10 +16,7 @@ class Test {
   }
 
   test(callback) {
-    callback.call({
-      component: this.component,
-      helpers: this.helpers
-    })
+    callback.call(this, this)
     return this
   }
 
