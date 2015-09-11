@@ -9,6 +9,7 @@ This is a super friendly testing framework for React, inspired by express middle
 ##Example
 
 ~~~js
+import { expect } from 'chai';
 import Test from 'legit-tests'
 import {SetState, Find} from '../src/middleware'
 
