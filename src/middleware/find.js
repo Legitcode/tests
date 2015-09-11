@@ -10,5 +10,6 @@ export default function find(selector){
   else elements = TestUtils.scryRenderedDOMComponentsWithTag(this.component, selector)
 
   if(elements.length === 1) elements = elements[0]
-  this.helpers[selector] = elements
+  if(!this.helpers.elements) this.helpers.elements = []
+  this.helpers.elements[selector] = elements
 }

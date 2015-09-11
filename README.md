@@ -17,7 +17,7 @@ Test(<TestComponent/>)
 .use(SetState, {test: 'test'})
 .use(Find, 'div')
 .test(function() {
-  expect(this.helpers.div.props.children).to.be.equal('test')
+  expect(this.helpers.elements.div.props.children).to.be.equal('test')
 })
 ~~~
 `Find` is a piece of included middleware that takes the component instance and finds a tag or class name for you. I'll explain that below.
