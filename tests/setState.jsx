@@ -4,19 +4,22 @@ import { expect } from 'chai';
 import TestComponent from './component'
 
 import Test from '../src/legit-tests'
-import Find from '../src/middleware/find'
-import SetState from '../src/middleware/setState'
+import {SetState, Find} from '../src/middleware'
+
 
 describe('setState middleware', () => {
 
   it('should change state', () => {
     Test(<TestComponent/>)
     .use(SetState, {test: 'test'})
-    .use(Find, 'div') // {class: 'class'}
-    .end((component, helpers) => {
-      expect(helpers.div[0].props.children).to.be.equal('test')
+    .use(Find, 'div')
+    .test(function(component, helpers) {
+      expect(this.helpers.div.props.children).to.be.equal('test')
     })
-
+    .use(SetState, {test: 'changed!'})
+    .test(function() {
+      expect(this.helpers.div.props.children).to.be.equal('changed!')
+    })
   });
 
 });

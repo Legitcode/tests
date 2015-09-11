@@ -10,14 +10,13 @@ This is a super friendly testing framework for React, inspired by express middle
 
 ~~~js
 import Test from 'legit-tests'
-import Find from 'legit-tests/middleware/find'
-import SetState from 'legit-tests/middleware/setState'
+import {SetState, Find} from '../src/middleware'
 
 Test(<TestComponent/>)
 .use(SetState, {test: 'test'})
 .use(Find, 'div')
-.end((component, helpers) => {
-  expect(helpers.div[0].props.children).to.be.equal('test')
+.test(function() {
+  expect(this.helpers.div.props.children).to.be.equal('test')
 })
 ~~~
 `Find` is a piece of included middleware that takes the component instance and finds a tag or class name for you. I'll explain that below.
@@ -39,8 +38,8 @@ export default function setState(state){
 }
 ~~~
 
-##End
+##test
 
-The `.end` function will be given the component instance and the helpers array so that you can use arrow functions as  courtesy. If you use a regular function, the context of this will be the same as the middleware. You can access the component and helpers on `this`.
+The `.test` function will be given the component instance and the helpers array. You can't use an arrow function.
 
 You can see more examples in the tests directory.
