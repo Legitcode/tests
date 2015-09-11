@@ -25,7 +25,7 @@ class Test {
   test(callback) {
     this.callMiddleware()
     callback.call({
-      middleware: this.middleware,
+      component: this.component,
       helpers: this.helpers
     })
     return this

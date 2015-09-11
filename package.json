@@ -1,6 +1,6 @@
 {
   "name": "legit-tests",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a chainable testing library for React",
   "main": "lib/legit-tests.js",
   "scripts": {
