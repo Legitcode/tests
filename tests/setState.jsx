@@ -13,8 +13,8 @@ describe('setState middleware', () => {
     Test(<TestComponent/>)
     .use(SetState, {test: 'test'})
     .use(Find, 'div')
-    .test(function() {
-      expect(this.helpers.elements.div.props.children).to.be.equal('test')
+    .test(({helpers}) => {
+      expect(helpers.elements.div.props.children).to.be.equal('test')
     })
     .use(SetState, {test: 'changed!'})
     .test(function() {
