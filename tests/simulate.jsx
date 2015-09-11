@@ -15,7 +15,7 @@ describe('simulate middleware', () => {
     Test(<TestComponent onClick={spy}/>)
     .use(Find, 'div')
     .use(Simulate, {method: 'click', element: 'div'})
-    .test(function() {
+    .test(() => {
       expect(spy.called).to.be.true;
     })
 
