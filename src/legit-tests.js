@@ -11,19 +11,11 @@ class Test {
   }
 
   use(callback, data){
-    this.middleware.push(callback.bind(this, data))
+    callback.call(this, data)
     return this
   }
 
-  callMiddleware(){
-    for (let i in this.middleware){
-      this.middleware[i].call()
-    }
-    this.middleware = []
-  }
-
   test(callback) {
-    this.callMiddleware()
     callback.call({
       component: this.component,
       helpers: this.helpers
