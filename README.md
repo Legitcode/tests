@@ -9,15 +9,18 @@ This is a super friendly testing framework for React, inspired by express middle
 ##Example
 
 ~~~js
-import { expect } from 'chai';
+import { expect } from 'chai'
+import sinon from 'sinon'
 import Test from 'legit-tests'
 import {SetState, Find} from 'legit-tests/middleware'
 
-Test(<TestComponent/>)
-.use(SetState, {test: 'test'})
-.use(Find, 'div')
+let spy = sinon.spy()
+
+Test(<TestComponent onClick={spy}/>)
+.use(Find, 'button')
+.use(Simulate, {method: 'click', element: 'button'})
 .test(function() {
-  expect(this.helpers.elements.div.props.children).to.be.equal('test')
+  expect(spy.called).to.be.true
 })
 ~~~
 `Find` is a piece of included middleware that takes the component instance and finds a tag or class name for you. I'll explain that below.
