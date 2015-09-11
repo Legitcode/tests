@@ -14,7 +14,7 @@ describe('setState middleware', () => {
     .use(SetState, {test: 'test'})
     .use(Find, 'div')
     .test(function() {
-      expect(this.helpers.div.props.children).to.be.equal('test')
+      expect(this.helpers.elements.div.props.children).to.be.equal('test')
     })
     .use(SetState, {test: 'changed!'})
     .test(function() {
