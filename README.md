@@ -19,7 +19,7 @@ let spy = sinon.spy()
 Test(<TestComponent onClick={spy}/>)
 .use(Find, 'button')
 .use(Simulate, {method: 'click', element: 'button'})
-.test(function() {
+.test(() => {
   expect(spy.called).to.be.true
 })
 ~~~
@@ -44,6 +44,13 @@ export default function setState(state){
 
 ##test
 
-The `.test` function will be given the component instance and the helpers array. You can't use an arrow function.
+The `.test` function will be given the component instance and the helpers array. You can use a regular function to reference `this` or an arrow function:
+
+~~~js
+.test(({helpers, component}) => { ... })
+.test(function() {
+  //this.component, this.helpers
+})
+~~~
 
 You can see more examples in the tests directory.
