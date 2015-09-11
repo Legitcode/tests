@@ -11,7 +11,7 @@ This is a super friendly testing framework for React, inspired by express middle
 ~~~js
 import { expect } from 'chai';
 import Test from 'legit-tests'
-import {SetState, Find} from '../src/middleware'
+import {SetState, Find} from 'legit-tests/middleware'
 
 Test(<TestComponent/>)
 .use(SetState, {test: 'test'})
