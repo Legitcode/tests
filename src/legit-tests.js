@@ -16,14 +16,19 @@ class Test {
   }
 
   callMiddleware(){
-    for (let middleware of this.middleware){
-      middleware.call()
+    for (let i in this.middleware){
+      this.middleware[i].call()
     }
+    this.middleware = []
   }
 
-  end(callback) {
+  test(callback) {
     this.callMiddleware()
-    callback.call(this, this.component, this.helpers)
+    callback.call({
+      middleware: this.middleware,
+      helpers: this.helpers
+    })
+    return this
   }
 
 }

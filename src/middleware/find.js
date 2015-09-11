@@ -3,14 +3,12 @@ let { TestUtils } = React.addons
 
 export default function find(selector){
   let elements
-  if(typeof selector === 'string'){
-    elements = TestUtils.scryRenderedDOMComponentsWithTag(this.component, selector)
-    this.helpers[selector] = elements
+  if(selector.match(/\./)){
+    selector = selector.replace(/\./, '')
+    elements = TestUtils.scryRenderedDOMComponentsWithClass(this.component, selector)
   }
-  else{
-    if(selector.class){
-      elements = TestUtils.scryRenderedDOMComponentsWithClass(this.component, selector.class)
-      this.helpers[selector.class] = elements
-    }
-  }
+  else elements = TestUtils.scryRenderedDOMComponentsWithTag(this.component, selector)
+
+  if(elements.length === 1) elements = elements[0]
+  this.helpers[selector] = elements
 }
