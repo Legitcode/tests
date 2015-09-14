@@ -12,7 +12,7 @@ This is a super friendly testing library for React, inspired by express middlewa
 import { expect } from 'chai'
 import sinon from 'sinon'
 import Test from 'legit-tests'
-import {SetState, Find} from 'legit-tests/middleware'
+import {SetState, Find} from 'legit-tests/lib/middleware'
 
 let spy = sinon.spy()
 
