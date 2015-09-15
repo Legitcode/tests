@@ -3,7 +3,9 @@ let { TestUtils } = React.addons
 
 export default function find(selector){
   let elements
-  if(selector.match(/\./)){
+  if (!(typeof selector === "string")) {
+    elements = TestUtils.scryRenderedComponentsWithType(this.component, selector)
+  } else if (selector.match(/\./)) {
     selector = selector.replace(/\./, '')
     elements = TestUtils.scryRenderedDOMComponentsWithClass(this.component, selector)
   }

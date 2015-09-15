@@ -2,6 +2,7 @@ import React from 'react'
 import { expect } from 'chai';
 
 import TestComponent from './component'
+import TinyComponent from './tiny-component'
 
 import Test from '../src/legit-tests'
 import {Find} from '../src/middleware'
@@ -24,4 +25,11 @@ describe('Find middleware', () => {
     })
   });
 
+  it('should find a rendered component', () => {
+    Test(<TestComponent/>)
+    .use(Find, TinyComponent)
+    .test(function() {
+      expect(this.helpers.elements.TinyComponent).to.be.ok;
+    });
+  });
 });
