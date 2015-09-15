@@ -27,7 +27,7 @@ Test(<TestComponent onClick={spy}/>)
 
 ##Middleware
 
-[Current list of Middleware](https://github.com/Legitcode/tests/wiki/Middleware)
+[Current list of Middleware](https://github.com/Legitcode/tests/wiki/Bundled-Middleware)
 
 You can write middleware to do anything you repeatedly use. You can pass `.use` a function, along with an object that it will take in. Each function will be injected with the current instance which includes:
 
