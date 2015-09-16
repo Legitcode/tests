@@ -1,5 +1,9 @@
+/* globals global */
+import './dom'
 import React from 'react/addons';
 let { TestUtils } = React.addons
+global.React = React //expose React to tests so they can use jsx syntax when passing in components to the class
+require('react/lib/ExecutionEnvironment').canUseDOM = true
 
 class Test {
 
