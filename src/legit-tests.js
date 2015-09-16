@@ -9,8 +9,16 @@ import {Find, SetState, Simulate} from './middleware'
 
 class Test {
 
-  constructor(component){
-    this.component = TestUtils.renderIntoDocument(component)
+  constructor(component, config){
+    if(config && config.shallow === true){
+      let shallowRenderer = TestUtils.createRenderer();
+      shallowRenderer.render(component);
+      this.component = shallowRenderer.getRenderOutput();
+    }
+    else{
+      this.component = TestUtils.renderIntoDocument(component)
+    }
+
     this.middleware = []
     this.helpers = []
     return this
