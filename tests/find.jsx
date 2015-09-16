@@ -27,7 +27,7 @@ describe('Find middleware', () => {
     Test(<TestComponent/>)
     .find(TinyComponent)
     .test(({helpers}) => {
-      expect(helpers.elements.TinyComponent.props.test).to.be.equal('true');
+      expect(helpers.elements.tinycomponent.props.test).to.be.equal('true');
     });
   });
 });

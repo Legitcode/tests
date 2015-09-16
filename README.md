@@ -2,7 +2,11 @@
 
 This is a super friendly testing library for React, inspired by express middleware, it's easily extendable. Why did I make this when you can use [React's Test Utils](https://facebook.github.io/react/docs/test-utils.html)? Because who likes typing out `scryRenderedDOMComponentsWithTag` and the other method names on there. Not only that, but setting up the render process is also a hassle.
 
-**New in 0.3.0** jsdom is included by default, no need to setup anything for your components to render into. The library does this all for you. Take a look at the tests directory to see examples. The big change here is that you must be on node v4 or iojs for this to work now. Also, best practice is to import this at the very top of each test file.
+**New**
+
+As of **0.3.2** you can shallow render by doing `Test(<Component/>, {shallow: true})`
+
+**0.3.0** jsdom is included by default, no need to setup anything for your components to render into. The library does this all for you. Take a look at the tests directory to see examples. The big change here is that you must be on node v4 or iojs for this to work now. Also, best practice is to import this at the very top of each test file.
 
 ###Install
 
@@ -25,7 +29,6 @@ Test(<TestComponent onClick={spy}/>)
   expect(spy.called).to.be.true
 })
 ~~~
-`Find` is a piece of included middleware that takes the component instance and finds a tag or class name for you. I'll explain that below.
 
 ##Middleware
 
