@@ -28,8 +28,8 @@ describe('Find middleware', () => {
   it('should find a rendered component', () => {
     Test(<TestComponent/>)
     .use(Find, TinyComponent)
-    .test(function() {
-      expect(this.helpers.elements.TinyComponent).to.be.ok;
+    .test(({helpers}) => {
+      expect(helpers.elements.TinyComponent.props.test).to.be.equal('true');
     });
   });
 });
