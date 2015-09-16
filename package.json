@@ -43,6 +43,7 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "jsdom": "^6.5.0",
     "react": "^0.13.3"
   }
 }
