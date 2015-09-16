@@ -1,6 +1,8 @@
 import React from 'react/addons';
 let { TestUtils } = React.addons
 
+import {Find, SetState, Simulate} from './middleware'
+
 class Test {
 
   constructor(component){
@@ -17,6 +19,23 @@ class Test {
 
   test(callback) {
     callback.call(this, this)
+    return this
+  }
+
+  //Built in middleware
+
+  find(data){
+    Find.call(this, data)
+    return this
+  }
+
+  setState(data){
+    SetState.call(this, data)
+    return this
+  }
+
+  simulate(data){
+    Simulate.call(this, data)
     return this
   }
 
