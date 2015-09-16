@@ -1,4 +1,5 @@
 import React from 'react'
+import TinyComponent from './tiny-component';
 
 export default class TestComponent extends React.Component {
   constructor(){
@@ -20,6 +21,7 @@ export default class TestComponent extends React.Component {
         onClick={this.props.onClick}>
         Click Me
       </button>
+      <TinyComponent test="true"/>
     </body>
   }
 }
