@@ -12,13 +12,12 @@ This is a super friendly testing library for React, inspired by express middlewa
 import { expect } from 'chai'
 import sinon from 'sinon'
 import Test from 'legit-tests'
-import {SetState, Find} from 'legit-tests/lib/middleware'
 
 let spy = sinon.spy()
 
 Test(<TestComponent onClick={spy}/>)
-.use(Find, 'button')
-.use(Simulate, {method: 'click', element: 'button'})
+.find('button')
+.simulate({method: 'click', element: 'button'})
 .test(() => {
   expect(spy.called).to.be.true
 })
@@ -37,6 +36,12 @@ You can write middleware to do anything you repeatedly use. You can pass `.use` 
 **Example**:
 This is the setState function used above.
 ~~~js
+
+Test(<TestComponent onClick={spy}/>)
+.use(SetState, {})
+
+... 
+
 export default function setState(state){
   this.component.setState(state)
 }
