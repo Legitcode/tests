@@ -21,7 +21,7 @@ export default class TestComponent extends React.Component {
         onClick={this.props.onClick}>
         Click Me
       </button>
-      <TinyComponent />
+      <TinyComponent test="true"/>
     </body>
   }
 }
