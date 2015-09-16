@@ -1,9 +1,4 @@
 /* globals global */
-
-require("babel/register")({
-  stage: 0
-});
-
 function propagateToGlobal (window) {
   for (let key in window) {
     if (!window.hasOwnProperty(key)) continue

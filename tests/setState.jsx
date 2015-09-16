@@ -1,16 +1,13 @@
-import React from 'react'
-import { expect } from 'chai';
-
-import TestComponent from './component'
-
 import Test from '../src/legit-tests'
+import { expect } from 'chai';
+import TestComponent from './component'
 import {SetState, Find} from '../src/middleware'
 
 
 describe('setState middleware', () => {
 
   it('should change state', () => {
-    Test(<TestComponent/>)
+    Test(<TestComponent />)
     .use(SetState, {test: 'test'})
     .use(Find, 'div')
     .test(({helpers}) => {
