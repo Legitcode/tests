@@ -53,6 +53,6 @@ class Test {
 
 }
 
-export default function TestWrapper(component){
-  return new Test(component)
+export default function TestWrapper(component, config){
+  return new Test(component, config)
 }
