@@ -25,8 +25,8 @@ describe('simulate middleware', () => {
     let spy = sinon.spy();
 
     Test(<TestComponent onClick={spy}/>)
-    .use(Find, 'button')
-    .use(Simulate, {method: 'click', element: 'button'})
+    .find('button')
+    .simulate({method: 'click', element: 'button'})
     .test(function() {
       expect(spy.called).to.be.true;
     })

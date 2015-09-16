@@ -11,7 +11,7 @@ describe('Find middleware', () => {
 
   it('should find div', () => {
     Test(<TestComponent/>)
-    .use(Find, 'div')
+    .find('div')
     .test(function() {
       expect(this.helpers.elements.div[0].props.children).to.be.equal(undefined)
     })
@@ -27,7 +27,7 @@ describe('Find middleware', () => {
 
   it('should find a rendered component', () => {
     Test(<TestComponent/>)
-    .use(Find, TinyComponent)
+    .find(TinyComponent)
     .test(({helpers}) => {
       expect(helpers.elements.TinyComponent.props.test).to.be.equal('true');
     });
