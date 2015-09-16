@@ -4,7 +4,7 @@ let { TestUtils } = React.addons
 export default function find(selector){
   let elements, name
   if (!(typeof selector === "string")) {
-    name = new selector().constructor.name //eslint-disable-line
+    name = selector.name.toLowerCase()
     elements = TestUtils.scryRenderedComponentsWithType(this.component, selector)
   } else if (selector.match(/\./)) {
     selector = selector.replace(/\./, '')
