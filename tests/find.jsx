@@ -11,15 +11,15 @@ describe('Find middleware', () => {
 
   it('should find div', () => {
     Test(<TestComponent/>)
-    .use(Find, 'div') // {class: 'class'}
+    .use(Find, 'div')
     .test(function() {
-      expect(this.helpers.elements.div.props.children).to.be.equal(undefined)
+      expect(this.helpers.elements.div[0].props.children).to.be.equal(undefined)
     })
   });
 
   it('should find p tag with class', () => {
     Test(<TestComponent/>)
-    .use(Find, '.box') // {class: 'class'}
+    .use(Find, '.box')
     .test(function() {
       expect(this.helpers.elements.box.props.children).to.be.equal('found me!')
     })
