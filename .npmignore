@@ -1,2 +1,5 @@
 src
+tests
+.eslintrc
+mocha.opts
 circle.yml
