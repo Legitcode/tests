@@ -3,7 +3,6 @@ import {Find} from '../src/middleware'
 import { expect } from 'chai';
 
 import TestComponent from './component'
-import TinyComponent from './tiny-component'
 
 describe('Shallow Render', () => {
 
