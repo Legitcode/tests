@@ -20,11 +20,24 @@ import TestComponent from './TestComponent'
 
 let spy = sinon.spy()
 
+
+//Calling a prop
 Test(<TestComponent onClick={spy}/>) //or shallow render Test(<Component/>, {shallow: true})
 .find('button')
 .simulate({method: 'click', element: 'button'})
 .test(() => {
   expect(spy.called).to.be.true
+})
+
+//finding an element
+Test(<TestComponent/>)
+.find('.box')
+.test(({box}) => {
+  /*new in 0.3.4
+    if you only have elements in your helpers object, they're available in the root object
+    ex: helpers.elements.box.props -> box.props, you can still use the long way :)
+  */
+  expect(box.props.children).to.be.equal('found me!')
 })
 ~~~
 
