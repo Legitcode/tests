@@ -10,13 +10,15 @@ import {Find, SetState, Simulate} from './middleware'
 class Test {
 
   constructor(component, config){
+    this.component = component
+
     if(config && config.shallow === true){
       let shallowRenderer = TestUtils.createRenderer();
       shallowRenderer.render(component);
-      this.component = shallowRenderer.getRenderOutput();
+      this.instance = shallowRenderer.getRenderOutput();
     }
     else{
-      this.component = TestUtils.renderIntoDocument(component)
+      this.instance = TestUtils.renderIntoDocument(component)
     }
 
     this.helpers = {}
@@ -56,6 +58,12 @@ class Test {
 
   simulate(data){
     Simulate.call(this, data)
+    return this
+  }
+
+  renderToString(callback){
+    var component = React.renderToStaticMarkup(this.component)
+    callback.call(null, component)
     return this
   }
 

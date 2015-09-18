@@ -5,12 +5,12 @@ export default function find(selector){
   let elements, name
   if (!(typeof selector === "string")) {
     name = selector.name.toLowerCase()
-    elements = TestUtils.scryRenderedComponentsWithType(this.component, selector)
+    elements = TestUtils.scryRenderedComponentsWithType(this.instance, selector)
   } else if (selector.match(/\./)) {
     selector = selector.replace(/\./, '')
-    elements = TestUtils.scryRenderedDOMComponentsWithClass(this.component, selector)
+    elements = TestUtils.scryRenderedDOMComponentsWithClass(this.instance, selector)
   }
-  else elements = TestUtils.scryRenderedDOMComponentsWithTag(this.component, selector)
+  else elements = TestUtils.scryRenderedDOMComponentsWithTag(this.instance, selector)
 
   if(elements.length === 1) elements = elements[0]
   if(!this.helpers.elements) this.helpers.elements = []
