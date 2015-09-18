@@ -9,7 +9,7 @@ describe('Shallow Render', () => {
   it('should render the component', () => {
     Test(<TestComponent test="wow"/>, {shallow: true})
     .test(function() {
-      expect(this.component).to.be.ok
+      expect(this.instance).to.be.ok
     })
   });
 
