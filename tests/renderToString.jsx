@@ -8,11 +8,11 @@ describe('Render To String', () => {
 
   it('should return the html of the component', () => {
     Test(<TestComponent test="wow"/>)
-    .test(({component}) => {
-      expect(component).to.be.ok
-    })
     .renderToString(string => {
       expect(string).to.match(/Click Me/)
+    })
+    .test(({instance}) => {
+      expect(instance).to.be.ok
     })
   });
 });
