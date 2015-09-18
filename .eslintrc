@@ -33,6 +33,7 @@
     "react/sort-comp": 1,
     "react/wrap-multilines": 1,
     "new-cap": [1, {newIsCap: true, capIsNew: false}],
+    "no-underscore-dangle": 0
   },
   "plugins": [
     "react"
