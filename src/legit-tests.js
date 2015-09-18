@@ -19,8 +19,7 @@ class Test {
       this.component = TestUtils.renderIntoDocument(component)
     }
 
-    this.middleware = []
-    this.helpers = []
+    this.helpers = {}
     return this
   }
 
@@ -30,7 +29,16 @@ class Test {
   }
 
   test(callback) {
-    callback.call(this, this)
+    var params = this.params()
+    callback.call(params, params)
+    return this
+  }
+
+  params(){
+    var length = Object.keys(this.helpers).length
+    if(this.helpers.elements && length === 1) {
+      return Object.assign({}, this, this.helpers.elements)
+    }
     return this
   }
 
