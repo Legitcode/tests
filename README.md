@@ -60,7 +60,7 @@ Test(<TestComponent onClick={spy}/>)
 ...
 
 export default function setState(state){
-  this.component.setState(state)
+  this.instance.setState(state)
 }
 ~~~
 
@@ -71,7 +71,7 @@ The `.test` function will be given the component instance and the helpers array.
 ~~~js
 .test(({helpers, component}) => { ... })
 .test(function() {
-  //this.component, this.helpers
+  //this.instance, this.helpers
 })
 ~~~
 
