@@ -15,7 +15,7 @@ describe('setState middleware', () => {
     })
     .setState({test: 'changed!'})
     .test(function() {
-      expect(this.component.state.test).to.be.equal('changed!')
+      expect(this.instance.state.test).to.be.equal('changed!')
     })
   });
 
