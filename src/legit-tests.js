@@ -37,7 +37,7 @@ class Test {
   params(){
     var length = Object.keys(this.helpers).length
     if(this.helpers.elements && length === 1) {
-      return Object.assign(this, this.helpers.elements)
+      return Object.assign({}, this, this.helpers.elements)
     }
     return this
   }
