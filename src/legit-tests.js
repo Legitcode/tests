@@ -1,9 +1,9 @@
 /* globals global */
 import './dom'
-import React from 'react/addons';
-let { TestUtils } = React.addons
+import TestUtils from 'react-addons-test-utils';
+import ReactDOMServer from 'react-dom/server'
+import React from 'react'
 global.React = React //expose React to tests so they can use jsx syntax when passing in components to the class
-require('react/lib/ExecutionEnvironment').canUseDOM = true
 
 import {Find, SetState, Simulate} from './middleware'
 
@@ -62,7 +62,7 @@ class Test {
   }
 
   renderToString(callback){
-    var component = React.renderToStaticMarkup(this.component)
+    var component = ReactDOMServer.renderToStaticMarkup(this.component)
     callback.call(null, component)
     return this
   }

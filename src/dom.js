@@ -15,5 +15,7 @@ var win = doc.defaultView;
 
 global.document = doc;
 global.window = win;
-
+global.navigator = {
+     userAgent: 'node.js'
+};
 propagateToGlobal(win);

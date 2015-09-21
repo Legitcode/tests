@@ -44,6 +44,8 @@
   },
   "dependencies": {
     "jsdom": "^6.5.0",
-    "react": "^0.13.3"
+    "react": "^0.14.0-rc1",
+    "react-addons-test-utils": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1"
   }
 }

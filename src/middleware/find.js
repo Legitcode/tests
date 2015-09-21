@@ -1,7 +1,7 @@
-import React from 'react'
-let { TestUtils } = React.addons
+import TestUtils from 'react-addons-test-utils';
 
 export default function find(selector){
+
   let elements, name
   if (!(typeof selector === "string")) {
     name = selector.name.toLowerCase()
