@@ -30,6 +30,12 @@ class Test {
     return this
   }
 
+  element(callback) {
+    let element = this.getFirst(this.helpers.elements)
+    if(this.helpers) callback.call(this, element)
+    return this
+  }
+
   test(callback) {
     var params = this.params()
     callback.call(params, params)
@@ -42,6 +48,12 @@ class Test {
       return Object.assign({}, this, this.helpers.elements)
     }
     return this
+  }
+
+  //private
+
+  getFirst(object){
+    for (let element in object) return object[element]
   }
 
   //Built in middleware
