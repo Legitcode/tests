@@ -11,7 +11,7 @@ describe('Find middleware', () => {
     Test(<TestComponent/>)
     .find('div')
     .test(function() {
-      expect(this.helpers.elements.div[0].props.children).to.be.equal(undefined)
+      expect(this.helpers.elements.div[0].innerHTML).to.be.equal('')
     })
   });
 
@@ -19,13 +19,13 @@ describe('Find middleware', () => {
     Test(<TestComponent/>)
     .use(Find, '.box')
     .test(function() {
-      expect(this.helpers.elements.box.props.children).to.be.equal('found me!')
+      expect(this.helpers.elements.box.innerHTML).to.be.equal('found me!')
     })
 
     Test(<TestComponent/>)
     .use(Find, '.box')
     .test(({box}) => {
-      expect(box.props.children).to.be.equal('found me!')
+      expect(box.innerHTML).to.be.equal('found me!')
     })
 
   });
