@@ -6,7 +6,6 @@ import TestComponent from './component'
 import TinyComponent from './tiny-component'
 
 describe('Find middleware', () => {
-
   it('should find div', () => {
     Test(<TestComponent/>)
     .find('div')

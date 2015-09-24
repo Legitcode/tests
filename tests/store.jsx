@@ -34,7 +34,9 @@ describe('TestStore', () => {
     it('should wait for the state to be set before returning the promise', () => {
       TestStore(MyStore)
       .setState({ todos: todos }, ({ store }) => {
-        expect(store.state.todos).to.eql(todos);
+        console.log("FOO!");
+        expect("foo").to.equal("bar");
+        expect(store.state.todos).to.eql("BAR!");
       });
     });
 
@@ -42,7 +44,7 @@ describe('TestStore', () => {
       TestStore(MyStore)
       .setState({ todos: todos })
       .test(({ store }) => {
-        expect(store.state.todos).to.eql(todos);
+        expect(store.state.todos).to.eql("FOO!");
       });
     });
   });
@@ -79,6 +81,22 @@ describe('TestStore', () => {
       .test(({ store }) => {
         expect(store.state.todos).to.eql(expected);
       });
+    });
+  });
+
+  describe('proxy', () => {
+    it('should proxy missing method calls to the call function', () => {
+      TestStore(MyStore)
+      .setState({ todos: todos })
+      .addTodo({ title: "Get Beer", complete: false })
+      .test(({ store }) => {
+        expect(store.state.todos).to.eql(expected);
+      });
+    });
+
+    it('should error out when a bad method is called', () => {
+      TestStore(MyStore)
+      .noWay()
     });
   });
 });
