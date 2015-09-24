@@ -10,6 +10,9 @@ This is a super friendly testing library for React, inspired by express middlewa
 
 ~~~js
 import Test from 'legit-tests'
+//or
+import Test from 'legit-tests/no-dom' //don't include jsdom
+
 import { expect } from 'chai'
 import sinon from 'sinon'
 import TestComponent from './TestComponent'
