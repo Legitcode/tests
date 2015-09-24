@@ -1,2 +1,7 @@
 node_modules
-lib
+legit-tests.js
+dom.js
+middleware.js
+middleware
+no-dom.js
+tests.js
