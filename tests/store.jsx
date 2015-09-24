@@ -59,6 +59,17 @@ describe('TestStore', () => {
     });
   });
 
+  describe('#call', () => {
+    it('should call a method on the store with a timeout', () => {
+      TestStore(MyStore)
+      .setState({ todos: todos })
+      .call('addTodo', { title: "Get Beer", complete: false })
+      .test(({ store }) => {
+        expect(store.state.todos).to.eql(expected);
+      });
+    });
+  });
+
   describe('#test', () => {
     it('should delegate to the wait function with a zero timeout', () => {
       TestStore(MyStore)

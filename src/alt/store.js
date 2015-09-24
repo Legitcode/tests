@@ -32,6 +32,11 @@ class TestStore {
     return this;
   }
 
+  call(funcName, data) {
+    this.callFunc(this.store[funcName], data).then(() => {});
+    return this;
+  }
+
   test(callback) {
     this.wait(callback);
 
