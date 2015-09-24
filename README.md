@@ -2,10 +2,6 @@
 
 This is a super friendly testing library for React, inspired by express middleware, it's easily extendable. Why did I make this when you can use [React's Test Utils](https://facebook.github.io/react/docs/test-utils.html)? Because who likes typing out `scryRenderedDOMComponentsWithTag` and the other method names on there. Not only that, but setting up the render process is also a hassle.
 
-###0.4.0
-
-In 0.4.0 there is a breaking change where `this.component` is now the component itself and the rendered instance is `this.instance`. This makes much more sense but sadly means tests need to be changed in order to update to the latest version.
-
 ###Install
 
 `npm install legit-tests --save`
@@ -69,10 +65,30 @@ export default function setState(state){
 The `.test` function will be given the component instance and the helpers array. You can use a regular function to reference `this` or an arrow function:
 
 ~~~js
-.test(({helpers, component}) => { ... })
+.test(({helpers, instance}) => { ... })
 .test(function() {
   //this.instance, this.helpers
 })
+~~~
+
+##element
+
+Use `.element` if you're just testing an element you found with the `.find` method. The syntax is a little smaller:
+
+~~~js
+Test(<TestComponent/>)
+.find('.box')
+.element(box => {
+  expect(box.props.children).to.be.equal('found me!')
+})
+//or specify the element
+
+.find('.box')
+.find('div')
+.element('box', box => {
+  expect(box.props.children).to.be.equal('found me!')
+})
+
 ~~~
 
 You can see more examples in the tests directory.
