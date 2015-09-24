@@ -30,9 +30,18 @@ class Test {
     return this
   }
 
-  element(callback) {
-    let element = this.getFirst(this.helpers.elements)
-    if(this.helpers) callback.call(this, element)
+  element(select, callback) {
+    if(!this.helpers) return
+
+    let element
+    if(typeof select === 'string') {
+      element = this.helpers.elements[select]
+      callback.call(this, element)
+      return this
+    }
+
+    element = this.getFirst(this.helpers.elements)
+    select.call(this, element)
     return this
   }
 
