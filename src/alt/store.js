@@ -6,27 +6,35 @@ class TestStore {
     this.store = AltTestingUtils.makeStoreTestable(alt, store);
   }
 
-  setState(params = {}) {
-    let promise = new Promise((resolve) => {
-      this.store.setState(params);
-      resolve(this);
-    });
-
-    return promise;
+  async callFunc(func, params) {
+    await func.call(this, params);
+    return this;
   }
 
-  wait(callback, duration = 10) {
-    let promise = new Promise((resolve) => {
+  async timeOut(timeout = 0) {
+    await setTimeout(() => {}, timeout);
+    return this;
+  }
+
+  setState(params = {}, callback = () => {}) {
+    this.callFunc(this.store.setState, params).then(() => {
       callback.call(this, this);
-      resolve(this);
     });
 
-    return promise;
+    return this;
   }
 
+  wait(callback, timeout) {
+    this.timeOut(timeout).then(() => {
+      callback.call(this, this);
+    });
+
+    return this;
+  }
 
   test(callback) {
-    callback.call(this, this);
+    this.wait(callback);
+
     return this;
   }
 }

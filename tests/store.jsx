@@ -15,11 +15,33 @@ describe('TestStore', () => {
     }
   ];
 
+  let expected = [
+    {
+      title: "Get Milk",
+      complete: false
+    },
+    {
+      title: "Get Bread",
+      complete: false
+    },
+    {
+      title: "Get Beer",
+      complete: false
+    }
+  ];
+
   describe('#setState', () => {
     it('should wait for the state to be set before returning the promise', () => {
       TestStore(MyStore)
+      .setState({ todos: todos }, ({ store }) => {
+        expect(store.state.todos).to.eql(todos);
+      });
+    });
+
+    it('should work without a callback', () => {
+      TestStore(MyStore)
       .setState({ todos: todos })
-      .then(({ store }) => {
+      .test(({ store }) => {
         expect(store.state.todos).to.eql(todos);
       });
     });
@@ -28,28 +50,22 @@ describe('TestStore', () => {
   describe('#wait', () => {
     it('should wait for the promise to return', () => {
       TestStore(MyStore)
+      .setState({ todos: todos }, ({ store }) => {
+        store.addTodo({ title: "Get Beer", complete: false });
+      })
       .wait(({ store }) => {
-        store.setState({ todos: todos });
-      })
-      .then(({ store }) => {
-        store.addTodo({ title: "Get Ber", complete: false });
-      })
-      .then(({ store }) => {
-        let expected = [
-          {
-            title: "Get Milk",
-            complete: false
-          },
-          {
-            title: "Get Bread",
-            complete: false
-          },
-          {
-            title: "Get Beer",
-            complete: false
-          }
-        ];
+        expect(store.state.todos).to.eql(expected);
+      });
+    });
+  });
 
+  describe('#test', () => {
+    it('should delegate to the wait function with a zero timeout', () => {
+      TestStore(MyStore)
+      .setState({ todos: todos }, ({ store }) => {
+        store.addTodo({ title: "Get Beer", complete: false });
+      })
+      .test(({ store }) => {
         expect(store.state.todos).to.eql(expected);
       });
     });
