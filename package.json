@@ -5,7 +5,7 @@
   "main": "legit-tests.js",
   "scripts": {
     "compile": "babel src --stage 0 --out-dir .;",
-    "prepublish": "babel src --stage 0 --out-dir lib;",
+    "prepublish": "babel src --stage 0 --out-dir .;",
     "test": "mocha --opts ./mocha.opts; eslint ./src/ --ext .jsx,.js --global require,exports:true"
   },
   "repository": {
