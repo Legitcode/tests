@@ -19,7 +19,7 @@
     "curly": 0,
     "camelcase": 0,
     "react/jsx-boolean-value": 1,
-    "react/jsx-quotes": 1,
+    "jsx-quotes": 1,
     "react/jsx-no-undef": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
