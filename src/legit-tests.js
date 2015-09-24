@@ -30,6 +30,21 @@ class Test {
     return this
   }
 
+  element(select, callback) {
+    if(!this.helpers) return
+
+    let element
+    if(typeof select === 'string') {
+      element = this.helpers.elements[select]
+      callback.call(this, element)
+      return this
+    }
+
+    element = this.getFirst(this.helpers.elements)
+    select.call(this, element)
+    return this
+  }
+
   test(callback) {
     var params = this.params()
     callback.call(params, params)
@@ -42,6 +57,12 @@ class Test {
       return Object.assign({}, this, this.helpers.elements)
     }
     return this
+  }
+
+  //private
+
+  getFirst(object){
+    for (let element in object) return object[element]
   }
 
   //Built in middleware
