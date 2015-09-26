@@ -1,3 +1,5 @@
+/* globals React */
+
 import Test from '../src/legit-tests'
 import { expect } from 'chai';
 import TestComponent from './component'

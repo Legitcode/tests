@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class TinyComponent extends React.Component {
+export default class TinyComponent extends Component {
   render() {
-    return <div className='foo'></div>
+    return <div className="foo"></div>
   }
 }
