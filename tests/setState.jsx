@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Test from '../src/legit-tests'
-import { expect } from 'chai';
+import { expect } from 'chai'
 import { SetState, Find } from '../src/middleware'
 
 import { TestComponent } from './components'
@@ -19,6 +19,6 @@ describe('setState middleware', () => {
     .test(function() {
       expect(this.instance.state.test).to.be.equal('changed!')
     })
-  });
+  })
 
-});
+})

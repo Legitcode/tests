@@ -1,3 +1,1 @@
-import Test from './tests'
-
-export default Test
+export default from './tests'

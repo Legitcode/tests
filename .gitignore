@@ -6,3 +6,4 @@ lib
 /middleware
 /no-dom.js
 /tests.js
+npm-debug.log

@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import TinyComponent from './tiny-component';
+import React, { Component } from 'react'
+import TinyComponent from './tiny-component'
 
 export default class TestComponent extends Component {
   constructor(props, context){

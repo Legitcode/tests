@@ -4,9 +4,11 @@
   "description": "a chainable testing library for React",
   "main": "legit-tests.js",
   "scripts": {
-    "compile": "babel src --stage 0 --out-dir .;",
-    "prepublish": "babel src --stage 0 --out-dir .;",
-    "test": "mocha --opts ./mocha.opts; eslint ./src/ ./tests/ --ext .jsx,.js --global require,exports:true"
+    "compile": "babel src --out-dir .",
+    "prepublish": "babel src  --out-dir .",
+    "lint": "eslint ./src/ ./tests/ --ext .jsx,.js --global require,exports:true",
+    "mocha": "mocha --opts ./mocha.opts",
+    "test": "npm run mocha; npm run lint"
   },
   "repository": {
     "type": "git",

@@ -25,16 +25,16 @@ function Test(component, config) {
     helpers: {},
     params() {
       const length = Object.keys(this.helpers).length
-      if(this.helpers.elements && length === 1) {
+      if (this.helpers.elements && length === 1) {
         return Object.assign({}, this, this.helpers.elements)
       }
       return this
     },
     element(select, callback) {
-      if(!this.helpers) return
+      if (!this.helpers) return
 
       let element
-      if(typeof select === 'string') {
+      if (typeof select === 'string') {
         element = this.helpers.elements[select]
         callback.call(this, element)
         return this
@@ -55,7 +55,7 @@ function Test(component, config) {
           return this
         }
       })
-      return this;
+      return this
     },
     test(callback) {
       const param = this.params()
@@ -67,7 +67,7 @@ function Test(component, config) {
       callback.call(null, componentString)
       return this
     }
-  };
+  }
 
   return testComponent.mixin({
     find: Find,

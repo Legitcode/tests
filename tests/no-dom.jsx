@@ -1,8 +1,7 @@
 import React from 'react'
 
 import Test from '../src/no-dom'
-import { Find } from '../src/middleware'
-import { expect } from 'chai';
+import { expect } from 'chai'
 
 import { TestComponent } from './components'
 
@@ -13,5 +12,5 @@ describe('no dom', () => {
     .test(function() {
       expect(this.instance).to.be.ok
     })
-  });
-});
+  })
+})
