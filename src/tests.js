@@ -15,33 +15,28 @@ function Test(component, config) {
     instance = TestUtils.renderIntoDocument(component)
   }
 
-  function getFirst(object) {
-    for (let element in object)
-      return object[element]
-  }
-
   const testComponent = {
     instance,
-    helpers: {},
-    params() {
-      const length = Object.keys(this.helpers).length
-      if (this.helpers.elements && length === 1) {
-        return Object.assign({}, this, this.helpers.elements)
-      }
-      return this
-    },
+    elements: {},
     element(select, callback) {
-      if (!this.helpers) return
-
       let element
       if (typeof select === 'string') {
-        element = this.helpers.elements[select]
+        element = this.elements[select]
         callback.call(this, element)
         return this
       }
 
-      element = getFirst(this.helpers.elements)
-      select.call(this, element)
+      if (Array.isArray(select)) {
+        const args = select.map(elem => this.elements[elem])
+        callback.call(this, ...args)
+        return this
+      }
+
+      if (Object.keys(this.elements).length === 1) {
+        select.call(this, this.elements[Object.keys(this.elements)[0]])
+      } else {
+        throw new Error("There are multiple elements select one")
+      }
       return this
     },
     use(callback, data) {
@@ -58,7 +53,7 @@ function Test(component, config) {
       return this
     },
     test(callback) {
-      const param = this.params()
+      const param = {...this, ...this.elements}
       callback.call(param, param)
       return this
     },

@@ -26,4 +26,14 @@ describe('.element', () => {
       expect(div.length).to.be.equal(2)
     })
   })
+
+  it('should select multiple elements', () => {
+    Test(<TestComponent />)
+    .find('.box')
+    .find('div')
+    .element(['box', 'div'], (box, div) => {
+      expect(div.length).to.be.equal(2)
+      expect(box.props.children).to.be.equal('found me!')
+    })
+  })
 })

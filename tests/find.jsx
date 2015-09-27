@@ -12,7 +12,7 @@ describe('Find middleware', () => {
     Test(<TestComponent/>)
     .find('div')
     .test(function() {
-      expect(this.helpers.elements.div[0].props.children).to.be.equal(undefined)
+      expect(this.elements.div[0].props.children).to.be.equal(undefined)
     })
   })
 
@@ -20,7 +20,7 @@ describe('Find middleware', () => {
     Test(<TestComponent/>)
     .use(Find, '.box')
     .test(function() {
-      expect(this.helpers.elements.box.props.children).to.be.equal('found me!')
+      expect(this.elements.box.props.children).to.be.equal('found me!')
     })
 
     Test(<TestComponent/>)

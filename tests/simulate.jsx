@@ -15,9 +15,8 @@ describe('simulate middleware', () => {
     Test(<TestComponent onClick={spy}/>)
     .use(Find, 'div')
     .use(Simulate, {method: 'click', element: 'div'})
-    .test(() => {
-      expect(spy.called).to.be.true
-    })
+
+    expect(spy.called).to.be.true
 
   })
 
@@ -27,9 +26,8 @@ describe('simulate middleware', () => {
     Test(<TestComponent onClick={spy}/>)
     .find('button')
     .simulate({method: 'click', element: 'button'})
-    .test(function() {
-      expect(spy.called).to.be.true
-    })
+
+    expect(spy.called).to.be.true
 
   })
 
