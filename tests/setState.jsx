@@ -2,9 +2,9 @@ import React from 'react'
 
 import Test from '../src/legit-tests'
 import { expect } from 'chai';
-import TestComponent from './component'
-import {SetState, Find} from '../src/middleware'
+import { SetState, Find } from '../src/middleware'
 
+import { TestComponent } from './components'
 
 describe('setState middleware', () => {
 

@@ -1,11 +1,11 @@
 import React from 'react'
 
 import Test from '../src/legit-tests'
-import {Find, Simulate} from '../src/middleware'
+import { Find, Simulate } from '../src/middleware'
 import { expect } from 'chai';
 import sinon from 'sinon';
-import TestComponent from './component'
 
+import { TestComponent } from './components'
 
 describe('simulate middleware', () => {
 

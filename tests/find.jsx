@@ -1,11 +1,10 @@
 import React from 'react'
 
 import Test from '../src/legit-tests'
-import {Find} from '../src/middleware'
+import { Find } from '../src/middleware'
 import { expect } from 'chai';
 
-import TestComponent from './component'
-import TinyComponent from './tiny-component'
+import { TestComponent, TinyComponent } from './components'
 
 describe('Find middleware', () => {
 
