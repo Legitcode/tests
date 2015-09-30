@@ -94,4 +94,25 @@ Test(<TestComponent/>)
 
 ~~~
 
+##mixin
+
+Use `.mixin` if you want to add new middleware as methods to `Test`. This gives a more natural way of using middleware:
+
+~~~js
+// In this example, CustomFind middleware was added to Test by mixin
+// and used if as it was a method on Test itself.
+
+Test(<TestComponent />)
+.mixin({
+  customFind: CustomFind
+})
+.customFind('cells', 'table td')
+.element('cells', cells => {
+  expect(cells.length).to.be.equal(10)
+})
+
+~~~
+
+
+
 You can see more examples in the tests directory.
