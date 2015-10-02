@@ -50,6 +50,9 @@ You can write middleware to do anything you repeatedly use. You can pass `.use` 
 - `helpers` - an array you can add on to with data for the end function
 
 **Example**:
+
+- See `mixin` below, this syntax may soon be deprecated
+
 This is the setState function used above.
 ~~~js
 
