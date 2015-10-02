@@ -1,8 +1,10 @@
-import Test from '../src/legit-tests'
-import { expect } from 'chai';
-import TestComponent from './component'
-import {SetState, Find} from '../src/middleware'
+import React from 'react'
 
+import Test from '../src/legit-tests'
+import { expect } from 'chai'
+import { SetState, Find } from '../src/middleware'
+
+import { TestComponent } from './components'
 
 describe('setState middleware', () => {
 
@@ -10,13 +12,13 @@ describe('setState middleware', () => {
     Test(<TestComponent />)
     .use(SetState, {test: 'test'})
     .use(Find, 'div')
-    .test(({helpers}) => {
-      expect(helpers.elements.div[0].props.children).to.be.equal('test')
+    .test(({elements}) => {
+      expect(elements.div[0].props.children).to.be.equal('test')
     })
     .setState({test: 'changed!'})
     .test(function() {
       expect(this.instance.state.test).to.be.equal('changed!')
     })
-  });
+  })
 
-});
+})

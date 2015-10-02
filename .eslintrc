@@ -1,7 +1,9 @@
 {
   "parser": "babel-eslint",
   "env": {
-    "es6": true
+    "es6": true,
+    "mocha": true,
+    "node": true
   },
   "ecmaFeatures": {
     "blockBindings": true,
@@ -14,6 +16,9 @@
     "max-len": 0,
     "semi": 0,
     "quotes": 0,
+    "semi": [2, "never"],
+    "no-unused-vars": 2,
+    "no-undef": 2,
     "no-console": 0,
     "no-trailing-spaces": 0,
     "curly": 0,
@@ -27,7 +32,7 @@
     "react/no-did-update-set-state": 1,
     "react/no-multi-comp": 1,
     "react/no-unknown-property": 1,
-    "react/prop-types": 1,
+    "react/prop-types": 0,
     "react/react-in-jsx-scope": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
