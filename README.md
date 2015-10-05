@@ -133,4 +133,4 @@ TestStore(MyStore, MyActions)
 })
 ~~~
 
-You can see the full documentation on the Wiki
+You can see the [full documentation on the Wiki](https://github.com/Legitcode/tests/wiki/Alt-Stores)
