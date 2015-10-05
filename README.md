@@ -79,7 +79,7 @@ You can see more examples in the tests directory.
 
 ##Testing Alt Stores
 
-You can now test Alt stores using the same API.
+You can now test [Alt](http://alt.js.org/) stores using the same API.
 
 ~~~js
 TestStore(MyStore, MyActions)
