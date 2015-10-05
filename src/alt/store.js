@@ -1,17 +1,10 @@
 import 'harmony-reflect'
 import alt from './alt'
-import AltTestingUtils from 'alt/utils/AltTestingUtils'
 
 class TestStore {
   constructor(store, actions) {
     this.store = store
     this.actions = actions
-  }
-
-  setState(params = {}, callback = () => {}) {
-    this.actions.setInitialState(params)
-    callback.call(this, this.store)
-    return this
   }
 
   action(funcName, data) {
@@ -39,5 +32,6 @@ export default function TestStoreWrapper(store, actions) {
       }
     }
   })
+
   return proxy
 }

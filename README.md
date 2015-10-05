@@ -76,3 +76,18 @@ The `.test` function will be given the component instance and the helpers array.
 ~~~
 
 You can see more examples in the tests directory.
+
+##Testing Alt Stores
+
+You can now test Alt stores using the same API.
+
+~~~js
+TestStore(MyStore, MyActions)
+.setInitialState({ todos: todos })
+.addTodo({ title: "Get Beer", complete: false })
+.test(({ state }) => {
+  expect(state.todos).to.eql(expected);
+})
+~~~
+
+You can see the full documentation on the Wiki
