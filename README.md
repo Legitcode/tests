@@ -116,8 +116,6 @@ Test(<TestComponent />)
 
 ~~~
 
-
-
 You can see more examples in the tests directory.
 
 ##Testing Alt Stores
