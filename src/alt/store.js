@@ -26,7 +26,7 @@ class TestStore {
 }
 
 export default function TestStoreWrapper(store, actions) {
-  return new Proxy(new TestStore(store, actions), {
+  var proxy = new Proxy(new TestStore(store, actions), {
     get: function(target, name) {
       if (name in target) {
         return target[name]
@@ -34,9 +34,10 @@ export default function TestStoreWrapper(store, actions) {
       else if (name in target.actions) {
         return (params) => {
           target.actions[name](params)
-          return target
+          return proxy
         }
       }
     }
   })
+  return proxy
 }
