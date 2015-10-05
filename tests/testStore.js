@@ -1,4 +1,4 @@
-import alt from '../src/alt/alt';
+import alt from '../src/alt/alt'
 
 class myActions {
   constructor() {
@@ -6,7 +6,7 @@ class myActions {
   }
 }
 
-const MyActions = alt.createActions(myActions);
+const MyActions = alt.createActions(myActions)
 
 class myStore {
   constructor() {
@@ -18,9 +18,9 @@ class myStore {
   }
 
   addTodo(todo) {
-    this.setState({ todos: this.todos.concat(todo) });
+    this.setState({ todos: this.todos.concat(todo) })
   }
 }
 
-const MyStore = alt.createStore(myStore, 'MyStore');
+const MyStore = alt.createStore(myStore, 'MyStore')
 export { MyStore, MyActions }

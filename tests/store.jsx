@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import TestStore from '../src/alt/store';
+import { expect } from 'chai'
+import TestStore from '../src/alt/store'
 
-import { MyStore, MyActions } from './testStore';
+import { MyStore, MyActions } from './testStore'
 
 describe('TestStore', () => {
   let todos = [
@@ -13,7 +13,7 @@ describe('TestStore', () => {
       title: "Get Bread",
       complete: false
     }
-  ];
+  ]
 
   let expected = [
     {
@@ -28,7 +28,7 @@ describe('TestStore', () => {
       title: "Get Beer",
       complete: false
     }
-  ];
+  ]
 
   describe('#action', () => {
     it('should call a method on the actions', () => {
@@ -36,10 +36,10 @@ describe('TestStore', () => {
       .setInitialState({ todos: todos })
       .action('addTodo', { title: "Get Beer", complete: false })
       .test(({ state }) => {
-        expect(state.todos).to.eql(expected);
-      });
-    });
-  });
+        expect(state.todos).to.eql(expected)
+      })
+    })
+  })
 
   describe('proxy', () => {
     it('should proxy missing method calls to the call function', () => {
@@ -47,8 +47,8 @@ describe('TestStore', () => {
       .setInitialState({ todos: todos })
       .addTodo({ title: "Get Beer", complete: false })
       .test(({ state }) => {
-        expect(state.todos).to.eql(expected);
-      });
-    });
-  });
-});
+        expect(state.todos).to.eql(expected)
+      })
+    })
+  })
+})

@@ -1,5 +1,4 @@
 import 'harmony-reflect'
-import alt from './alt'
 
 class TestStore {
   constructor(store, actions) {
