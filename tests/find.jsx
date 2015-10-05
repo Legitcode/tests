@@ -7,7 +7,6 @@ import { expect } from 'chai'
 import { TestComponent, TinyComponent } from './components'
 
 describe('Find middleware', () => {
-
   it('should find div', () => {
     Test(<TestComponent/>)
     .find('div')
