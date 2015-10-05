@@ -6,11 +6,6 @@ class TestStore {
     this.actions = actions
   }
 
-  action(funcName, data) {
-    this.actions[funcName].call(this, data)
-    return this
-  }
-
   test(callback) {
     callback.call(this, this.store)
     return this

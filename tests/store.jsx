@@ -30,17 +30,6 @@ describe('TestStore', () => {
     }
   ]
 
-  describe('#action', () => {
-    it('should call a method on the actions', () => {
-      TestStore(MyStore, MyActions)
-      .setInitialState({ todos: todos })
-      .action('addTodo', { title: "Get Beer", complete: false })
-      .test(({ state }) => {
-        expect(state.todos).to.eql(expected)
-      })
-    })
-  })
-
   describe('proxy', () => {
     it('should proxy missing method calls to the call function', () => {
       TestStore(MyStore, MyActions)
