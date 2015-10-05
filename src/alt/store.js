@@ -1,59 +1,39 @@
 import 'harmony-reflect'
-import alt from './alt';
-import AltTestingUtils from 'alt/utils/AltTestingUtils';
+import alt from './alt'
+import AltTestingUtils from 'alt/utils/AltTestingUtils'
 
 class TestStore {
-  constructor(store) {
-    this.store = AltTestingUtils.makeStoreTestable(alt, store);
-  }
-
-  async timeOut(timeout = 0) {
-    await setTimeout(() => {}, timeout);
-    return this;
-  }
-
-  async callFunc(func, params) {
-    await func.call(this, params);
-    return this;
+  constructor(store, actions) {
+    this.store = store
+    this.actions = actions
   }
 
   setState(params = {}, callback = () => {}) {
-    this.callFunc(this.store.setState, params).then(function(val) {
-      console.log(this, val);
-      callback.call(this, this);
-    });
-
-    return this;
+    this.actions.setInitialState(params)
+    callback.call(this, this.store)
+    return this
   }
 
-  wait(callback, timeout) {
-    this.timeOut(timeout).then(function() {
-      callback.call(this, this);
-    });
-
-    return this;
-  }
-
-  call(funcName, data) {
-    this.callFunc(this.store[funcName], data);
-    return this;
+  action(funcName, data) {
+    this.actions[funcName].call(this, data)
+    return this
   }
 
   test(callback) {
-    this.wait(callback);
-
-    return this;
+    callback.call(this, this.store)
+    return this
   }
 }
 
-export default function TestStoreWrapper(store) {
-  return new Proxy(new TestStore(store), {
-    get: function(target, name) {
-      if (name in target) {
-        return target[name];
-      } else {
-        return target.call;
-      }
-    }
-  })
+export default function TestStoreWrapper(store, actions) {
+  return new TestStore(store, actions)
+  //return new Proxy(new TestStore(store, actions), {
+  //  get: function(target, name) {
+  //    if (name in target) {
+  //      return target[name]
+  //    } else {
+  //      return (params) => { target.callFunc(name, params) }
+  //    }
+  //  }
+  //})
 }
