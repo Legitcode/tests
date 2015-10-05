@@ -26,14 +26,17 @@ class TestStore {
 }
 
 export default function TestStoreWrapper(store, actions) {
-  return new TestStore(store, actions)
-  //return new Proxy(new TestStore(store, actions), {
-  //  get: function(target, name) {
-  //    if (name in target) {
-  //      return target[name]
-  //    } else {
-  //      return (params) => { target.callFunc(name, params) }
-  //    }
-  //  }
-  //})
+  return new Proxy(new TestStore(store, actions), {
+    get: function(target, name) {
+      if (name in target) {
+        return target[name]
+      }
+      else if (name in target.actions) {
+        return (params) => {
+          target.actions[name](params)
+          return target
+        }
+      }
+    }
+  })
 }
