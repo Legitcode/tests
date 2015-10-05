@@ -82,6 +82,8 @@ You can see more examples in the tests directory.
 You can now test Alt stores using the same API.
 
 ~~~js
+import TestStore from 'legit-tests/alt/store'
+
 TestStore(MyStore, MyActions)
 .setInitialState({ todos: todos })
 .addTodo({ title: "Get Beer", complete: false })
