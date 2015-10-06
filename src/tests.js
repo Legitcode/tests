@@ -1,5 +1,6 @@
 import React from 'react/addons'
 let { TestUtils } = React.addons
+global.React = React
 require('react/lib/ExecutionEnvironment').canUseDOM = true
 
 import { Find, SetState, Simulate } from './middleware'
