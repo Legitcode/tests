@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Test from '../src/legit-tests'
 import { expect } from 'chai'
 

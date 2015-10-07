@@ -1,7 +1,4 @@
-import React from 'react'
-
 import Test from '../src/legit-tests'
-import { Find, Simulate } from '../src/middleware'
 import { expect } from 'chai'
 import sinon from 'sinon'
 
@@ -13,9 +10,8 @@ describe('simulate middleware', () => {
     let spy = sinon.spy()
 
     Test(<TestComponent onClick={spy}/>)
-    .use(Find, 'div')
-    .use(Simulate, {method: 'click', element: 'div'})
-
+    .find('div')
+    .simulate({method: 'click', element: 'div'})
     expect(spy.called).to.be.true
 
   })

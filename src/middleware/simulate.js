@@ -1,5 +1,4 @@
-import React from 'react'
-let { TestUtils } = React.addons
+import TestUtils from 'react-addons-test-utils'
 
 export default function simulate(data) {
   let element

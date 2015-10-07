@@ -9,7 +9,7 @@ export default class TestComponent extends Component {
 
   render(){
     return (
-      <body>
+      <section>
         <div onClick={this.props.onClick}>{this.state.test}</div>
         <p className="box">found me!</p>
         <button
@@ -23,7 +23,7 @@ export default class TestComponent extends Component {
           Click Me
         </button>
         <TinyComponent test="true"/>
-      </body>
+      </section>
     )
   }
 }

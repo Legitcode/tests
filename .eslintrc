@@ -33,7 +33,7 @@
     "react/no-multi-comp": 1,
     "react/no-unknown-property": 1,
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": 1,
+    "react/react-in-jsx-scope": 0,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
     "react/wrap-multilines": 1,

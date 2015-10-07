@@ -1,7 +1,7 @@
-import React from 'react/addons'
-let { TestUtils } = React.addons
+import TestUtils from 'react-addons-test-utils'
+import ReactDOMServer from 'react-dom/server'
+import React from 'react'
 global.React = React
-require('react/lib/ExecutionEnvironment').canUseDOM = true
 
 import { Find, SetState, Simulate } from './middleware'
 
@@ -59,7 +59,7 @@ function Test(component, config) {
       return this
     },
     renderToString(callback) {
-      const componentString = React.renderToStaticMarkup(component)
+      const componentString = ReactDOMServer.renderToStaticMarkup(component)
       callback.call(null, componentString)
       return this
     }

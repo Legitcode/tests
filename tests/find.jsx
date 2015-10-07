@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Test from '../src/legit-tests'
 import { Find } from '../src/middleware'
 import { expect } from 'chai'
@@ -25,7 +23,7 @@ describe('Find middleware', () => {
     Test(<TestComponent/>)
     .use(Find, '.box')
     .test(({box}) => {
-      expect(box.props.children).to.be.equal('found me!')
+      expect(box.innerHTML).to.be.equal('found me!')
     })
 
   })
