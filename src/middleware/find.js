@@ -1,4 +1,4 @@
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-addons-test-utils'
 
 export default function find(selector){
 
@@ -12,7 +12,9 @@ export default function find(selector){
   }
   else elements = TestUtils.scryRenderedDOMComponentsWithTag(this.instance, selector)
 
-  if(elements.length === 1) elements = elements[0]
-  if(!this.helpers.elements) this.helpers.elements = []
-  this.helpers.elements[name || selector] = elements
+  if (Array.isArray(elements) && elements.length === 1) {
+    this.elements[name || selector] = elements[0]
+  } else {
+    this.elements[name || selector] = elements
+  }
 }

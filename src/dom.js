@@ -8,14 +8,12 @@ function propagateToGlobal (window) {
   }
 }
 
-var jsdom = require('jsdom');
+var jsdom = require('jsdom')
 
-var doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
-var win = doc.defaultView;
+var doc = jsdom.jsdom('<!doctype html><html><body></body></html>')
+var win = doc.defaultView
 
-global.document = doc;
-global.window = win;
-global.navigator = {
-     userAgent: 'node.js'
-};
-propagateToGlobal(win);
+global.document = doc
+global.window = win
+
+propagateToGlobal(win)

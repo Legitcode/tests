@@ -1,8 +1,7 @@
 import Test from '../src/legit-tests'
-import {Find} from '../src/middleware'
-import { expect } from 'chai';
+import { expect } from 'chai'
 
-import TestComponent from './component'
+import { TestComponent } from './components'
 
 describe('Render To String', () => {
 
@@ -14,5 +13,5 @@ describe('Render To String', () => {
     .test(({instance}) => {
       expect(instance).to.be.ok
     })
-  });
-});
+  })
+})

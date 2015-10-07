@@ -1,9 +1,9 @@
-import Test from '../src/legit-tests'
+import Test from '../src/no-dom'
 import { expect } from 'chai'
 
 import { TestComponent } from './components'
 
-describe('Shallow Render', () => {
+describe('no dom', () => {
 
   it('should render the component', () => {
     Test(<TestComponent test="wow"/>, {shallow: true})
@@ -11,5 +11,4 @@ describe('Shallow Render', () => {
       expect(this.instance).to.be.ok
     })
   })
-
 })
