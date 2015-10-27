@@ -40,4 +40,16 @@ describe('TestStore', () => {
       })
     })
   })
+
+  describe('wait', () => {
+    it('should wait for the method to finish before running tests', (done) => {
+      TestStore(MyStore, MyActions)
+      .setInitialState({ todos: todos })
+      .addTodo({ title: "Get Beer", complete: false })
+      .wait(({ state }) => {
+        expect(state.todos).to.eql(expected)
+        done()
+      }, 100)
+    })
+  })
 })

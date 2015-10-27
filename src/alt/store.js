@@ -6,6 +6,14 @@ class TestStore {
     this.actions = actions
   }
 
+  wait(callback, duration = 0) {
+    setTimeout(() => {
+      callback.call(this, this.store)
+    }, duration)
+
+    return this
+  }
+
   test(callback) {
     callback.call(this, this.store)
     return this
