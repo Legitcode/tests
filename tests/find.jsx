@@ -3,6 +3,7 @@ import { Find } from '../src/middleware'
 import { expect } from 'chai'
 
 import { TestComponent, TinyComponent } from './components'
+import OtherComponent from './components/other-component'
 
 describe('Find middleware', () => {
   it('should find div', () => {
@@ -33,6 +34,15 @@ describe('Find middleware', () => {
     .find(TinyComponent)
     .test(({tinycomponent}) => {
       expect(tinycomponent.props.test).to.be.equal('true')
+    })
+  })
+
+  it('should find a rendered component created with `createClass`', () => {
+    Test(<TestComponent/>)
+    .find(OtherComponent)
+    .test(function() {
+      let otherComponent = this.elements['other-component']
+      expect(otherComponent.props.test).to.be.equal('true')
     })
   })
 })
