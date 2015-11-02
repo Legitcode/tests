@@ -4,7 +4,7 @@ export default function find(selector){
 
   let elements, name
   if (!(typeof selector === "string")) {
-    name = selector.name.toLowerCase()
+    name = (selector.name || selector.displayName).toLowerCase()
     elements = TestUtils.scryRenderedComponentsWithType(this.instance, selector)
   } else if (selector.match(/\./)) {
     selector = selector.replace(/\./, '')

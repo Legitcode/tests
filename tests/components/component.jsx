@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TinyComponent from './tiny-component'
+import OtherComponent from './other-component'
 
 export default class TestComponent extends Component {
   constructor(props, context){
@@ -23,6 +24,7 @@ export default class TestComponent extends Component {
           Click Me
         </button>
         <TinyComponent test="true"/>
+        <OtherComponent test="true"/>
       </section>
     )
   }
