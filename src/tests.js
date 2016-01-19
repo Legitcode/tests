@@ -18,6 +18,7 @@ function Test(component, config) {
 
   const testComponent = {
     instance,
+    component,
     elements: {},
     element(select, callback) {
       let element
