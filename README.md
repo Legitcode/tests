@@ -32,10 +32,6 @@ Test(<TestComponent onClick={spy}/>) //or shallow render Test(<Component/>, {sha
 Test(<TestComponent/>)
 .find('.box')
 .elements('.box', (box) => {
-  /*new in 0.3.4
-    if you only have elements in your helpers object, they're available in the root object
-    ex: helpers.elements.box.props -> box.props, you can still use the long way :)
-  */
   expect(box.props.children).to.be.equal('found me!')
 })
 ~~~
