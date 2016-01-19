@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "jsdom": "^6.5.1",
+    "lodash": "^3.10.1",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "^0.14.0"

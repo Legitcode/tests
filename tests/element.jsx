@@ -17,7 +17,7 @@ describe('.element', () => {
     Test(<TestComponent/>)
     .find('.box')
     .find('div')
-    .element('box', box => {
+    .element('.box', box => {
       expect(box.props.children).to.be.equal('found me!')
     })
     .element('div', div => {
@@ -29,7 +29,7 @@ describe('.element', () => {
     Test(<TestComponent />)
     .find('.box')
     .find('div')
-    .element(['box', 'div'], (box, div) => {
+    .element(['.box', 'div'], (box, div) => {
       expect(div.length).to.be.equal(2)
       expect(box.props.children).to.be.equal('found me!')
     })

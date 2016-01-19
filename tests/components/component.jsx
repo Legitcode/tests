@@ -11,7 +11,7 @@ export default class TestComponent extends Component {
     return (
       <section>
         <div onClick={this.props.onClick}>{this.state.test}</div>
-        <p className="box">found me!</p>
+        <p className="box" data-p-tag>found me!</p>
         <button
           type="button"
           onClick={this.props.onClick}>

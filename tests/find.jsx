@@ -15,15 +15,24 @@ describe('Find middleware', () => {
 
   it('should find p tag with class', () => {
     Test(<TestComponent/>)
-    .use(Find, '.box')
+    .use(Find, 'p.box')
     .test(function() {
-      expect(this.elements.box.props.children).to.be.equal('found me!')
+      expect(this.elements['p.box'].props.children).to.be.equal('found me!')
     })
 
     Test(<TestComponent/>)
-    .use(Find, '.box')
-    .test(({box}) => {
+    .use(Find, 'p.box')
+    .element('p.box',(box) => {
       expect(box.innerHTML).to.be.equal('found me!')
+    })
+
+  })
+
+  it('should find p tag with data attribute', () => {
+    Test(<TestComponent/>)
+    .use(Find, '[data-p-tag]')
+    .test(function() {
+      expect(this.elements['[data-p-tag]'].props.children).to.be.equal('found me!')
     })
 
   })
