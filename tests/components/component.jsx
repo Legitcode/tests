@@ -23,6 +23,8 @@ export default class TestComponent extends Component {
           onClick={this.props.onClick}>
           Click Me
         </button>
+        <input className="notbob" name />
+        <input className="bob" name="bob" />
         <TinyComponent test="true"/>
         <OtherComponent test="true"/>
       </section>

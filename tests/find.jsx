@@ -38,6 +38,16 @@ describe('Find middleware', () => {
 
   })
 
+  it('should find an input with a name attribute that equals \'bob\'', ()=>{
+    Test(<TestComponent/>)
+    .find('input[name="bob"]')
+    .find('input[name]')
+    .test(function(){
+      expect(this.elements['input[name="bob"]'].className).equal('bob')
+      expect(this.elements['input[name]'].className).equal('notbob')
+    })
+  })
+
   it('should find a rendered component', () => {
     Test(<TestComponent/>)
     .find(TinyComponent)

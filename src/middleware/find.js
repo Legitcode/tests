@@ -36,11 +36,18 @@ export default function find(selector){
 
       // data attribute
       case '[':
+        var attributeName = _.first( subselector.slice(1,-1).split('=') )
+        var attributeValue = subselector.slice(1,-1).split('=').slice(1).join('=').replace(/^"(.*)"$/, '$1')
+
         els = TestUtils.findAllInRenderedTree(self.instance, function(component){
           if (component.getAttribute) {
-            return component.getAttribute(subselector.slice(1,-1))
+            var val = component.getAttribute(attributeName)
+            if (val === attributeValue || (val === 'true' && attributeValue === '')){
+              return true
+            }
           }
         })
+
         foundElements.push( Array.isArray(els) ? els : [els] )
         break
 
