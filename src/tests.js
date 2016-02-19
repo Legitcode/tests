@@ -1,9 +1,10 @@
 import TestUtils from 'react-addons-test-utils'
 import ReactDOMServer from 'react-dom/server'
+import ReactDOM from 'react-dom'
 import React from 'react'
 global.React = React
 
-import { Find, SetState, Simulate } from './middleware'
+import { Find, SetState, Simulate, Clean } from './middleware'
 
 function Test(component, config) {
 
@@ -12,6 +13,10 @@ function Test(component, config) {
     const shallowRenderer = TestUtils.createRenderer()
     shallowRenderer.render(component)
     instance = shallowRenderer.getRenderOutput()
+  } else if (config && config.fullDOM && global.window) {
+    var div = global.window.document.createElement('div')
+    global.window.document.body.appendChild(div)
+    instance = ReactDOM.render(component, div)
   } else {
     instance = TestUtils.renderIntoDocument(component)
   }
@@ -69,7 +74,8 @@ function Test(component, config) {
   return testComponent.mixin({
     find: Find,
     setState: SetState,
-    simulate: Simulate
+    simulate: Simulate,
+    clean: Clean
   })
 }
 
