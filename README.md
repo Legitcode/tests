@@ -21,7 +21,7 @@ let spy = sinon.spy()
 
 
 //Calling a prop
-Test(<TestComponent onClick={spy}/>) //or shallow render Test(<Component/>, {shallow: true})
+Test(<TestComponent onClick={spy}/>)
 .find('button')
 .simulate({method: 'click', element: 'button'})
 .test(() => {
@@ -111,6 +111,37 @@ Test(<TestComponent />)
 })
 
 ~~~
+
+##DOM rendering
+__Shallow__ -- uses React shallow rendering (no DOM)
+~~~js
+Test(<TestComponent onClick={spy}/>, {shallow: true})
+.find('button')
+.simulate({method: 'click', element: 'button'})
+.test(() => {
+  expect(spy.called).to.be.true
+})
+~~~
+
+__Normal__ -- React render into document fragment
+~~~js
+Test(<TestComponent onClick={spy}/>)
+.find('button')
+.simulate({method: 'click', element: 'button'})
+.test(() => {
+  expect(spy.called).to.be.true
+})
+~~~
+
+__fullDOM__ -- ReactDOM render into document.body.div of jsdom
+~~~js
+Test(<section />, {fullDOM: true})
+.test(function() {
+  expect(global.window.document.querySelector('section'))
+  .to.be.okay
+})
+.clean() // restores the document.body to empty
+~~~ 
 
 You can see more examples in the tests directory.
 
