@@ -7,7 +7,7 @@ describe('Render into document.body', () => {
     Test(<section />, {fullDOM: true})
     .test(function() {
       expect(global.window.document.querySelector('section'))
-      .to.be.okay
+      .to.not.equal(null)
     })
     .clean()
 
