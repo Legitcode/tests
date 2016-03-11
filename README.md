@@ -4,7 +4,6 @@ Legit Tests version 2.0 is completely rebuilt and much simpler. It has been infl
 
 ```
 npm install legit-tests@@2.0.0-alpha-1
-
 ```
 
 ###Example
@@ -18,6 +17,8 @@ it('should find id', () => {
 })
 
 ```
+
+Any method after .find is expected to be a prop on a component.
 
 That is it. You can find multiple nodes and access them like so:
 
