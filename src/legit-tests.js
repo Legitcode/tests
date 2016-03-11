@@ -3,54 +3,37 @@ import React from 'react'
 import findAll from './find-all'
 
 export default (component) => {
-  let items, selectedIndex
-
+  let items
+  
   const shallowRenderer = TestUtils.createRenderer()
   shallowRenderer.render(component)
   const instance = shallowRenderer.getRenderOutput();
   
   const find = (term, child) => {
     const selector = term.charAt(0)
+
     switch (selector) {
       case '.':
         items = findAll(instance, child => child.props ? child.props.className == term.slice(1) : false)
-        return proxy
+        return { ...items[0].props, ...utils}
       case '#':
         items = findAll(instance, child => child.props ? child.props.id == term.slice(1) : false)
-        return proxy
+        return { ...items[0].props, ...utils}
       default:
-        return proxy
+        return utils
     }
   }
 
-  const first = () => {
-    selectedIndex = 0
-    return proxy
-  }
-
-  const last = () => {
-    selectedIndex = items.length - 1
-    return proxy
-  }
-
-  const get = (index) => {
-    selectedIndex = index
-    return proxy
-  }
+  const first = () => items[0].props
+  const last = () => items[items.length - 1].props
+  const get = (index) => items[index].props
 
   const utils = {
-    props: instance.props,
     find,
     first,
     last,
-    get
+    get,
   }
 
-  const proxy = Proxy.create({
-    get: (proxy, name) => {
-      if(utils[name]) return value => utils[name](value)
-      return items[selectedIndex || 0].props[name]
-    }
-  })
-  return proxy
+  return utils
 }
