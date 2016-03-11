@@ -1,4 +1,4 @@
 --full-trace
---compilers js:babel/register
+--compilers js:babel-register
 --harmony-proxies
---recursive ./tests/**/*.jsx
+--recursive ./tests
