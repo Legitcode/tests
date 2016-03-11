@@ -1,10 +1,4 @@
 node_modules
-lib
-alt
-/legit-tests.js
-/dom.js
-/middleware.js
-/middleware
-/no-dom.js
-/tests.js
+legit-tests.js
+find-all.js
 npm-debug.log
