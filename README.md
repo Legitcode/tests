@@ -3,7 +3,7 @@
 Legit Tests version 2.0 is completely rebuilt and much simpler. It has been influenced by [enzyme](https://github.com/airbnb/enzyme) and some code from [react-shallow-testutils](https://github.com/sheepsteak/react-shallow-testutils). It is meant to be a complete testing solution for shallow rendering. The syntax is as short as possible for testing your components!
 
 ```
-npm install legit-tests@2.0.0-alpha-1
+npm install legit-tests@2.0.0-alpha-3
 ```
 
 ###Example

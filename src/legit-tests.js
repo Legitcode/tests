@@ -20,7 +20,8 @@ export default (component) => {
         items = findAll(instance, child => child.props ? child.props.id == term.slice(1) : false)
         return { ...items[0].props, ...utils}
       default:
-        return utils
+        items = findAll(instance, child => child.type ? child.type == term : false)
+        return { ...items[0].props, ...utils}
     }
   }
 

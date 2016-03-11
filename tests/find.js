@@ -22,4 +22,9 @@ describe('Find', () => {
     expect(legit.find('.awesome').first().children.props.id).to.equal('sick')
     expect(legit.find('.awesome').last().children).to.equal('another one')
   })
+   it('should find by tag name', () => {
+    const legit = test(<Test />)
+
+    expect(legit.find('p').children.props.id).to.equal('sick')
+  })
 })
