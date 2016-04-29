@@ -1,6 +1,6 @@
 {
   "name": "legit-tests",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "a chainable testing library for React",
   "main": "legit-tests.js",
   "scripts": {
@@ -48,8 +48,8 @@
     "harmony-reflect": "^1.4.2",
     "jsdom": "^6.5.1",
     "lodash": "^3.10.1",
-    "react": "^0.14.0",
-    "react-addons-test-utils": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": ">=0.14.0 || >15.0.0",
+    "react-addons-test-utils": ">=0.14.0 || >=15.0.0",
+    "react-dom": ">=0.14.0 || >=15.0.0"
   }
 }
